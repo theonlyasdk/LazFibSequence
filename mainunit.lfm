@@ -1,0 +1,67 @@
+object FMain: TFMain
+  Left = 321
+  Height = 240
+  Top = 250
+  Width = 316
+  BorderIcons = [biSystemMenu]
+  Caption = 'Fibonacci Sequence'
+  ClientHeight = 240
+  ClientWidth = 316
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  object LblTitle: TLabel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 316
+    Align = alTop
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Fibonacci Sequence'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -29
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = LblTitleClick
+  end
+  object LBFib: TListBox
+    Left = 1
+    Height = 112
+    Top = 96
+    Width = 313
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ExtendedSelect = False
+    Items.Strings = (
+      'Click generate to see the fibonacci sequence here...'
+    )
+    ItemHeight = 15
+    Style = lbOwnerDrawFixed
+    TabOrder = 0
+    OnDrawItem = LBFibDrawItem
+  end
+  object BtnGenerate: TButton
+    Left = 1
+    Height = 25
+    Top = 212
+    Width = 314
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'Generate'
+    TabOrder = 1
+    OnClick = BtnGenerateClick
+  end
+  object LEFibN: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 64
+    Width = 296
+    Anchors = [akTop, akLeft, akRight]
+    EditLabel.Height = 15
+    EditLabel.Width = 296
+    EditLabel.Caption = 'Enter n for F(n):'
+    TabOrder = 2
+    TextHint = 'Restrictions: n > 1'
+    OnKeyDown = LEFibNKeyDown
+  end
+end
